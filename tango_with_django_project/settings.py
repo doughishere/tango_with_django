@@ -15,6 +15,25 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Build paths to the template directory.
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+# Build paths to the static files directory. For more info visit:
+#       https://docs.djangoproject.com/en/2.0/howto/static-files/
+# If everything is working correctly then you can view the rango.jpg image in your browser when you visit:
+#       http://127.0.0.1:8000/static/images/rango.jpg
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [STATIC_DIR, ]
+
+# Build paths to the media files directory. For more info visit:
+#
+# If everything is working correctly then you can view the cat.jpg image in your browser when you visit:
+#       http://localhost:8000/media/cat.jpg
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -55,7 +74,7 @@ ROOT_URLCONF = 'tango_with_django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
